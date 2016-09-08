@@ -7,9 +7,9 @@ target 'Task' do
 
   # Pods for Task
     pod 'Alamofire', '~> 3.4'
-pod 'NVBnbCollectionView'
-pod 'SDWebImage', '~>3.8'
-pod 'AlamofireObjectMapper', '~> 3.0'
+    pod 'NVBnbCollectionView'
+    pod 'SDWebImage', '~>3.8'
+    pod 'AlamofireObjectMapper', '~> 3.0'
 
 
 end
