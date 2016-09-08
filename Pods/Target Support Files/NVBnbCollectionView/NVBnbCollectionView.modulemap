@@ -1,0 +1,6 @@
+framework module NVBnbCollectionView {
+  umbrella header "NVBnbCollectionView-umbrella.h"
+
+  export *
+  module * { export * }
+}
