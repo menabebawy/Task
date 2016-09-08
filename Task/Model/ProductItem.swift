@@ -8,45 +8,32 @@
 
 import Foundation
 import AlamofireObjectMapper
-
 import ObjectMapper
 import Alamofire
-import AlamofireObjectMapper
+
 
 class ProductItem  : Mappable{
-
+    
+    //product id
     var id:Int?
+    //product description
     var productDescription:String?
+    //product price
     var price:Int?
+    //product image
     var image:ProductImage?
     
+    //init
     required init?(_ map: Map){
-        
     }
+    
+    //mapping JSON dictionary's key to local object
     func mapping(map: Map) {
         id <- map["id"]
         productDescription <- map["productDescription"]
         price<-map["price"]
         image <- map["image"]
     }
-    
-    
 }
-class ProductImage :Mappable{
-    required init?(_ map: Map){
-        
-    }
- 
-    var imageWidth:Int?
-    var imageHeight:Int?
-    var imageURL:String?
-    func mapping(map: Map) {
-        imageWidth <- map["width"]
-        imageHeight <- map["height"]
-        imageURL<-map["url"]
-   }
-    
 
-
-}
     
