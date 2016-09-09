@@ -12,11 +12,20 @@ class ProductCollectionViewCell: UICollectionViewCell {
     
     //image
     @IBOutlet weak var productImage: UIImageView!
+    @IBOutlet private weak var imageViewHeightLayoutConstraint: NSLayoutConstraint!
     
     //price
     @IBOutlet weak var productPriceLabel: UILabel!
     
     //description 
     @IBOutlet weak var productDescriptionLabel: UILabel!
+    
+    
+    override func applyLayoutAttributes(layoutAttributes: UICollectionViewLayoutAttributes) {
+        super.applyLayoutAttributes(layoutAttributes)
+        if let attributes = layoutAttributes as? PinterestLayoutAttributes {
+            imageViewHeightLayoutConstraint.constant = attributes.photoHeight
+        }
+    }
     
 }

@@ -19,6 +19,7 @@
 		39A4B1931D8061D800B52C69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39A4B1921D8061D800B52C69 /* Assets.xcassets */; };
 		39AD050E1D82811E009BAAFC /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AD050D1D82811E009BAAFC /* PinterestLayout.swift */; };
 		39AD05101D828295009BAAFC /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AD050F1D828295009BAAFC /* ProductCollectionViewCell.swift */; };
+		39AD05121D82C8AC009BAAFC /* RoundedCornersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AD05111D82C8AC009BAAFC /* RoundedCornersView.swift */; };
 		CA73FF7612107F6E58734849 /* Pods_Task.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A89BA1953C8DE86F5D58255E /* Pods_Task.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		39A4B1971D8061D800B52C69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39AD050D1D82811E009BAAFC /* PinterestLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
 		39AD050F1D828295009BAAFC /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		39AD05111D82C8AC009BAAFC /* RoundedCornersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCornersView.swift; sourceTree = "<group>"; };
 		6037C63717C2B4D6011DDDCC /* Pods-Task.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task.release.xcconfig"; path = "Pods/Target Support Files/Pods-Task/Pods-Task.release.xcconfig"; sourceTree = "<group>"; };
 		A89BA1953C8DE86F5D58255E /* Pods_Task.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Task.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAD735E2E0B55E86D097918C /* Pods-Task.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Task/Pods-Task.debug.xcconfig"; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 			children = (
 				39A3B8541D81A77500461E72 /* ProductsCollectionViewController.swift */,
 				39AD050F1D828295009BAAFC /* ProductCollectionViewCell.swift */,
+				39AD05111D82C8AC009BAAFC /* RoundedCornersView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				39A3B8551D81A77500461E72 /* ProductsCollectionViewController.swift in Sources */,
 				39A3B85E1D81B61100461E72 /* DataParsing.swift in Sources */,
 				39A3B84F1D81A2C500461E72 /* ProductItem.swift in Sources */,
+				39AD05121D82C8AC009BAAFC /* RoundedCornersView.swift in Sources */,
 				39A3B8531D81A63700461E72 /* ProductImage.swift in Sources */,
 				39AD050E1D82811E009BAAFC /* PinterestLayout.swift in Sources */,
 				39A3B8571D81A79500461E72 /* NetworkRequester.swift in Sources */,
@@ -388,6 +392,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.egygames.Task;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -400,6 +405,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.egygames.Task;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

@@ -34,6 +34,12 @@ class ProductItem  : Mappable{
         price<-map["price"]
         image <- map["image"]
     }
+    
+    func heightForComment(font: UIFont, width: CGFloat) -> CGFloat {
+        let rect = NSString(string: productDescription!).boundingRectWithSize(CGSize(width: width, height: CGFloat(MAXFLOAT)), options: .UsesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+        return ceil(rect.height)
+    }
+
 }
 
     

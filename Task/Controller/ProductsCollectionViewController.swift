@@ -27,6 +27,11 @@ class ProductsCollectionViewController: UICollectionViewController {
 
         // Do any additional setup after loading the view.
         
+        // Set the PinterestLayout delegate
+        if let layout = collectionView?.collectionViewLayout as? PinterestLayout {
+            layout.delegate = self
+        }
+        
         //load products
         self.loadProducts()
     }
@@ -68,6 +73,13 @@ class ProductsCollectionViewController: UICollectionViewController {
         cell.productDescriptionLabel?.text = productObj.productDescription
         cell.productPriceLabel?.text = String(format:"%d", productObj.price!) as String
         cell.productImage.kf_setImageWithURL(NSURL(string:productObj.image!.imageURL!)!, placeholderImage:Image(named:"PlaceholderImage"))
+        
+        // Configure layer 
+        cell.layer.borderWidth = 1.0
+        cell.layer.borderColor = UIColor.grayColor().CGColor
+        cell.layer.masksToBounds = true
+        cell.layer.cornerRadius = 4.0
+        
         return cell
     }
 
@@ -114,4 +126,26 @@ class ProductsCollectionViewController: UICollectionViewController {
         }
     }
 
+}
+
+
+extension ProductsCollectionViewController : PinterestLayoutDelegate {
+    // Return the photo height
+    func collectionView(collectionView:UICollectionView, heightForPhotoAtIndexPath indexPath: NSIndexPath,
+                        withWidth width: CGFloat) -> CGFloat {
+        let product = productsArray[indexPath.item]
+        return CGFloat(product.image!.imageHeight!)
+    }
+    
+    // Return the annotation size based on the text
+    func collectionView(collectionView: UICollectionView,
+                        heightForAnnotationAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat {
+        let annotationPadding = CGFloat(4)
+        let annotationHeaderHeight = CGFloat(17)
+        let product = productsArray[indexPath.item]
+        let font = UIFont(name: "AvenirNext-Regular", size: 10)!
+        let commentHeight = product.heightForComment(font, width: width)
+        let height = annotationPadding + annotationHeaderHeight + commentHeight + annotationPadding
+        return height
+    }
 }
