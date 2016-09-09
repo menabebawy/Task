@@ -3,25 +3,23 @@ PODS:
   - AlamofireObjectMapper (3.0.2):
     - Alamofire (~> 3.2)
     - ObjectMapper (~> 1.0)
+  - Kingfisher (2.4.3)
   - NVBnbCollectionView (1.0.2)
   - ObjectMapper (1.4.0)
-  - SDWebImage (3.8.1):
-    - SDWebImage/Core (= 3.8.1)
-  - SDWebImage/Core (3.8.1)
 
 DEPENDENCIES:
   - Alamofire (~> 3.4)
   - AlamofireObjectMapper (~> 3.0)
+  - Kingfisher (~> 2.4)
   - NVBnbCollectionView
-  - SDWebImage (~> 3.8)
 
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
   AlamofireObjectMapper: 70f97cbf45c01c48d26aa07a1a7059a60ed7411d
+  Kingfisher: 322a9c1c5b03212c1e741d6bece72d387b01a77a
   NVBnbCollectionView: 4a9676e3624db539acafceca3349d187a13a47e9
   ObjectMapper: a07ad0462c5adf014adc0f89ef04c29b626e855e
-  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
 
-PODFILE CHECKSUM: bf611d6edc70576a3353cb06d3b8c56b83a40a81
+PODFILE CHECKSUM: 457615e67ef90e671ae8e5d6b0f18912b36a9b5e
 
 COCOAPODS: 1.1.0.beta.1

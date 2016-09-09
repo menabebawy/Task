@@ -12,14 +12,13 @@ import Alamofire
 class NetworkRequester: NSObject {
     
     //request products by products count and listen from 
-    class func requestProductsByProductCount (productsCount: Int, listenfrom: Int) -> [ProductItem] {
-        var productItems: [ProductItem] = []
+    class func requestProductsByProductCount (productsCount: Int, listenfrom: Int, withCompletion:((productsArray: [ProductItem]) -> Void)) -> Void {
+    
         let URL = Constants.productsAPIURL + Constants.productsCount + String(productsCount) + Constants.productsListenFrom + String(listenfrom)
         print(URL)
         //request URL
         Alamofire.request(.GET, URL).responseArray { (response: Response <[ProductItem], NSError>) in
-            productItems = response.result.value!
+            withCompletion(productsArray: response.result.value!)
         }
-        return productItems
     }
 }

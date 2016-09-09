@@ -10,7 +10,11 @@ import Foundation
 
 struct Constants {
     
+    //api url
     static let productsAPIURL       = "http://grapesnberries.getsandbox.com/products?"
     static let productsCount        = "count="
     static let productsListenFrom   = "&from="
+    
+    //productCollectionViewCell
+    static let reuseIdentifier      = "Cell"
 }

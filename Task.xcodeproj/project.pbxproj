@@ -17,6 +17,8 @@
 		39A3B85E1D81B61100461E72 /* DataParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A3B85D1D81B61100461E72 /* DataParsing.swift */; };
 		39A4B18C1D8061D700B52C69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A4B18B1D8061D700B52C69 /* AppDelegate.swift */; };
 		39A4B1931D8061D800B52C69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39A4B1921D8061D800B52C69 /* Assets.xcassets */; };
+		39AD050E1D82811E009BAAFC /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AD050D1D82811E009BAAFC /* PinterestLayout.swift */; };
+		39AD05101D828295009BAAFC /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AD050F1D828295009BAAFC /* ProductCollectionViewCell.swift */; };
 		CA73FF7612107F6E58734849 /* Pods_Task.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A89BA1953C8DE86F5D58255E /* Pods_Task.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +35,8 @@
 		39A4B18B1D8061D700B52C69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39A4B1921D8061D800B52C69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39A4B1971D8061D800B52C69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39AD050D1D82811E009BAAFC /* PinterestLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
+		39AD050F1D828295009BAAFC /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		6037C63717C2B4D6011DDDCC /* Pods-Task.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task.release.xcconfig"; path = "Pods/Target Support Files/Pods-Task/Pods-Task.release.xcconfig"; sourceTree = "<group>"; };
 		A89BA1953C8DE86F5D58255E /* Pods_Task.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Task.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAD735E2E0B55E86D097918C /* Pods-Task.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Task/Pods-Task.debug.xcconfig"; sourceTree = "<group>"; };
@@ -54,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				39A3B8541D81A77500461E72 /* ProductsCollectionViewController.swift */,
+				39AD050F1D828295009BAAFC /* ProductCollectionViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -114,6 +119,7 @@
 		39A4B18A1D8061D700B52C69 /* Task */ = {
 			isa = PBXGroup;
 			children = (
+				39AD050C1D8280DD009BAAFC /* Layouts */,
 				39A3B8581D81A82800461E72 /* Utilities */,
 				39A3B8481D81A2C500461E72 /* Layers */,
 				39A3B8461D81A2C500461E72 /* Controller */,
@@ -124,6 +130,14 @@
 				39A4B1971D8061D800B52C69 /* Info.plist */,
 			);
 			path = Task;
+			sourceTree = "<group>";
+		};
+		39AD050C1D8280DD009BAAFC /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				39AD050D1D82811E009BAAFC /* PinterestLayout.swift */,
+			);
+			path = Layouts;
 			sourceTree = "<group>";
 		};
 		BFE6DD1C197C4B54249B0FEE /* Pods */ = {
@@ -269,8 +283,10 @@
 				39A3B85E1D81B61100461E72 /* DataParsing.swift in Sources */,
 				39A3B84F1D81A2C500461E72 /* ProductItem.swift in Sources */,
 				39A3B8531D81A63700461E72 /* ProductImage.swift in Sources */,
+				39AD050E1D82811E009BAAFC /* PinterestLayout.swift in Sources */,
 				39A3B8571D81A79500461E72 /* NetworkRequester.swift in Sources */,
 				39A4B18C1D8061D700B52C69 /* AppDelegate.swift in Sources */,
+				39AD05101D828295009BAAFC /* ProductCollectionViewCell.swift in Sources */,
 				39A3B85A1D81A85F00461E72 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

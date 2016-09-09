@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import Kingfisher  //webImage library
 
 private let reuseIdentifier = "Cell"
 
 class ProductsCollectionViewController: UICollectionViewController {
+    
+    //Products array
+    var productsArray: [ProductItem] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +27,8 @@ class ProductsCollectionViewController: UICollectionViewController {
 
         // Do any additional setup after loading the view.
         
-        NetworkRequester.requestProductsByProductCount(10, listenfrom: 50)
+        //load products
+        self.loadProducts()
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,20 +50,24 @@ class ProductsCollectionViewController: UICollectionViewController {
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return self.productsArray.count
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
+        
+        let cell: ProductCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ProductCollectionViewCell
     
         // Configure the cell
-    
+        let productObj: ProductItem = self.productsArray[indexPath.row]
+        cell.productDescriptionLabel?.text = productObj.productDescription
+        cell.productPriceLabel?.text = String(format:"%d", productObj.price!) as String
+        
         return cell
     }
 
@@ -92,5 +101,17 @@ class ProductsCollectionViewController: UICollectionViewController {
     
     }
     */
+    
+    //load products
+    func loadProducts () {
+         NetworkRequester.requestProductsByProductCount(10, listenfrom: 50) { (productsArray) in
+            if(productsArray.count>1){
+                self.productsArray = productsArray
+                self.collectionView!.reloadData()
+            }else{
+                //error messgae -> can't load products from API
+            }
+        }
+    }
 
 }
