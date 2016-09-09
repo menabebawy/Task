@@ -67,7 +67,7 @@ class ProductsCollectionViewController: UICollectionViewController {
         let productObj: ProductItem = self.productsArray[indexPath.row]
         cell.productDescriptionLabel?.text = productObj.productDescription
         cell.productPriceLabel?.text = String(format:"%d", productObj.price!) as String
-        
+        cell.productImage.kf_setImageWithURL(NSURL(string:productObj.image!.imageURL!)!, placeholderImage:Image(named:"PlaceholderImage"))
         return cell
     }
 
