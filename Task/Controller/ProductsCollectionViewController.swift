@@ -10,6 +10,7 @@ import UIKit
 import Kingfisher  //webImage library
 
 private let reuseIdentifier = "Cell"
+private let numberOfProductsToLoading = 30
 
 class ProductsCollectionViewController: UICollectionViewController {
     
@@ -35,7 +36,7 @@ class ProductsCollectionViewController: UICollectionViewController {
         //load products
         self.loadProducts()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -66,25 +67,43 @@ class ProductsCollectionViewController: UICollectionViewController {
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell: ProductCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ProductCollectionViewCell
-    
-        // Configure the cell
-        let productObj: ProductItem = self.productsArray[indexPath.row]
-        cell.productDescriptionLabel?.text = productObj.productDescription
-        cell.productPriceLabel?.text = String(format:"%d", productObj.price!) as String
-        cell.productImage.kf_setImageWithURL(NSURL(string:productObj.image!.imageURL!)!, placeholderImage:Image(named:"PlaceholderImage"))
+        // Check if the last row -> present ActivityView and load more products
+        if indexPath.row == self.productsArray.count{
+            // return the new UICollectionViewCell with an activity indicator
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
+            let activityView = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+            activityView.center = CGPointMake(cell.contentView.frame.size.width / 2, cell.contentView.frame.size.height / 2)
+            cell.contentView.addSubview(activityView)
+            activityView.startAnimating()
+            return cell
+        }else{
+            let cell: ProductCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ProductCollectionViewCell
+            
+            // Configure the cell
+            let productObj: ProductItem = self.productsArray[indexPath.row]
+            cell.productDescriptionLabel?.text = productObj.productDescription
+            cell.productPriceLabel?.text = String(format:"%d", productObj.price!) as String
+            cell.productImage.kf_setImageWithURL(NSURL(string:productObj.image!.imageURL!)!, placeholderImage:Image(named:"PlaceholderImage"))
+            
+            // Configure layer
+            cell.layer.borderWidth = 1.0
+            cell.layer.borderColor = UIColor.grayColor().CGColor
+            cell.layer.masksToBounds = true
+            cell.layer.cornerRadius = 4.0
+            return cell
+        }
         
-        // Configure layer 
-        cell.layer.borderWidth = 1.0
-        cell.layer.borderColor = UIColor.grayColor().CGColor
-        cell.layer.masksToBounds = true
-        cell.layer.cornerRadius = 4.0
-        
-        return cell
     }
 
     // MARK: UICollectionViewDelegate
-
+    
+    override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+        print(indexPath.row)
+        if indexPath.row == productsArray.count-1{
+            // loadMoreData()
+            self.loadMoreProducts(indexPath.row+2)
+        }
+    }
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking
     override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -114,10 +133,23 @@ class ProductsCollectionViewController: UICollectionViewController {
     }
     */
     
-    //load products
-    func loadProducts () {
-         NetworkRequester.requestProductsByProductCount(10, listenfrom: 50) { (productsArray) in
+    // Load more products data
+    func loadMoreProducts (listFrom: Int) {
+        NetworkRequester.requestProductsByProductCount(numberOfProductsToLoading, listenfrom: listFrom) { (productsArray) in
             if(productsArray.count>1){
+                self.productsArray += productsArray
+                let newIndexPath = NSIndexPath(forItem: listFrom, inSection: 2)
+                self.collectionView?.insertItemsAtIndexPaths([newIndexPath])
+            }else{
+                //error messgae -> can't load products from API
+            }
+        }
+    }
+    
+    // Load products
+    func loadProducts () {
+         NetworkRequester.requestProductsByProductCount(numberOfProductsToLoading, listenfrom: 1) { (productsArray) in
+            if(productsArray.count>0){
                 self.productsArray = productsArray
                 self.collectionView!.reloadData()
             }else{

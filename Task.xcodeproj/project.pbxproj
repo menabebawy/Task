@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3976A8AF1D83173100BA379E /* LoadMoreCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3976A8AE1D83173100BA379E /* LoadMoreCollectionReusableView.swift */; };
 		39A3B84F1D81A2C500461E72 /* ProductItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A3B84A1D81A2C500461E72 /* ProductItem.swift */; };
 		39A3B8501D81A2C500461E72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39A3B84C1D81A2C500461E72 /* LaunchScreen.storyboard */; };
 		39A3B8511D81A2C500461E72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39A3B84D1D81A2C500461E72 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3976A8AE1D83173100BA379E /* LoadMoreCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadMoreCollectionReusableView.swift; sourceTree = "<group>"; };
 		39A3B84A1D81A2C500461E72 /* ProductItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductItem.swift; sourceTree = "<group>"; };
 		39A3B84C1D81A2C500461E72 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		39A3B84D1D81A2C500461E72 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			children = (
 				39A3B8541D81A77500461E72 /* ProductsCollectionViewController.swift */,
 				39AD050F1D828295009BAAFC /* ProductCollectionViewCell.swift */,
+				3976A8AE1D83173100BA379E /* LoadMoreCollectionReusableView.swift */,
 				39AD05111D82C8AC009BAAFC /* RoundedCornersView.swift */,
 			);
 			path = Controller;
@@ -287,6 +290,7 @@
 				39A3B84F1D81A2C500461E72 /* ProductItem.swift in Sources */,
 				39AD05121D82C8AC009BAAFC /* RoundedCornersView.swift in Sources */,
 				39A3B8531D81A63700461E72 /* ProductImage.swift in Sources */,
+				3976A8AF1D83173100BA379E /* LoadMoreCollectionReusableView.swift in Sources */,
 				39AD050E1D82811E009BAAFC /* PinterestLayout.swift in Sources */,
 				39A3B8571D81A79500461E72 /* NetworkRequester.swift in Sources */,
 				39A4B18C1D8061D700B52C69 /* AppDelegate.swift in Sources */,
