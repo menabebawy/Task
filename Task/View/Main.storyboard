@@ -32,7 +32,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewLayout key="collectionViewLayout" id="64D-UT-mxn" customClass="PinterestLayout" customModule="Task" customModuleProvider="target"/>
+                        <collectionViewLayout key="collectionViewLayout" id="9Eu-xN-7Ey" customClass="PinterestLayout" customModule="Task" customModuleProvider="target"/>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="fBq-zp-RGQ" customClass="ProductCollectionViewCell" customModule="Task" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="170" height="170"/>

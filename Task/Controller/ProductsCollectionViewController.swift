@@ -138,8 +138,7 @@ class ProductsCollectionViewController: UICollectionViewController {
         NetworkRequester.requestProductsByProductCount(numberOfProductsToLoading, listenfrom: listFrom) { (productsArray) in
             if(productsArray.count>1){
                 self.productsArray += productsArray
-                let newIndexPath = NSIndexPath(forItem: listFrom, inSection: 2)
-                self.collectionView?.insertItemsAtIndexPaths([newIndexPath])
+                self.collectionView?.reloadData()
             }else{
                 //error messgae -> can't load products from API
             }
