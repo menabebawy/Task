@@ -104,6 +104,12 @@ class ProductsCollectionViewController: UICollectionViewController {
             self.loadMoreProducts(indexPath.row+2)
         }
     }
+    
+    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//        self.collectionView?.reloadData()
+    }
+    
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking
     override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -137,7 +143,10 @@ class ProductsCollectionViewController: UICollectionViewController {
     func loadMoreProducts (listFrom: Int) {
         NetworkRequester.requestProductsByProductCount(numberOfProductsToLoading, listenfrom: listFrom) { (productsArray) in
             if(productsArray.count>1){
+                // Append new items to productsArray
                 self.productsArray += productsArray
+                // Call collectionViewLayout to relead new items in CollectionView
+                self.collectionView?.collectionViewLayout.invalidateLayout()
                 self.collectionView?.reloadData()
             }else{
                 //error messgae -> can't load products from API

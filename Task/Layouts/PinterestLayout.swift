@@ -94,11 +94,16 @@ class PinterestLayout: UICollectionViewLayout {
                 contentHeight = max(contentHeight, CGRectGetMaxY(frame))
                 yOffset[column] = yOffset[column] + height
                 
-                column = column >= (numberOfColumns - 1) ? 0 : ++column
+                column = column >= (numberOfColumns - 1) ? 0 : column+1
             }
         }
     }
     
+    // Remove cach to allow collectionView.reload() after new items have been insearted 
+    override func invalidateLayout() {
+        self.cache.removeAll()
+        super.invalidateLayout()
+    }
     override func collectionViewContentSize() -> CGSize {
         return CGSize(width: contentWidth, height: contentHeight)
     }
